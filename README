@@ -1,0 +1,63 @@
+# API service project
+## Author : Duc Thai
+
+## Date
+29th November 2023
+
+Project Overview
+This project is an APi developed using Node.js with Express and Sequelize, interfacing with a SQLite database. This project is designed to oparate CRUD http request. Key features include:
+
+- HTTP Server: Utilizes the Express framework to handle HTTP requests and responses efficiently.
+- Relational Database Integration: Incorporates a SQLite database, managed through the Sequelize ORM, ensuring structured and efficient data handling.
+- API Functionality:
+ - GET Endpoints: Allows searching and retrieving information using multiple criteria.
+ - POST Endpoints: Enables adding new data to the database.
+ - PATCH Endpoints: Facilitates the modification of existing data.
+ - Data Relationships: Manages complex data relationships, exemplified by two related tables with JOIN operations.
+ - Error Handling: Implements comprehensive error handling to ensure reliability and ease of debugging.
+ - JSON Responses: Ensures all responses are in JSON format, providing a standardized API response structure.
+
+## Setup and Installation
+* Prerequisites
+- Node.js (Recommended version: 20.0.0)
+- npm (Comes with Node.js)
+- SQLite3
+- Postman (for API testing)
+## Installation Steps
+- Download and Open the folder from google drive or Clone the Repository (recommended):
+  - git clone 
+- Install Dependencies:
+        npm install
+- Setting Up the Database:
+    - Ensure database.db is in the root directory or adjust the path in database.js.
+- Start the server : node app.js
+
+
+
+###  Use Postman 
+- Example: To fetch users, send a GET request to http://localhost:5000/users.
+- Available Endpoints:
+
+    - GET /users: Fetch all users.
+    - POST /users: Create a new user.
+    - POST /posts: create a new post
+    - PATCH /posts/:id: Update a post.
+
+### Use curl
+- You can also use curl to test the API endpoints directly from the command line.
+- Example commands:
+
+Fetch Users:
+
+- curl -X GET http://localhost:5000/users
+
+Create user:
+
+- curl -X POST -H "Content-Type: application/json" -d '{"name":"John Doe", "email":"johndoe@example.com"}' http://localhost:5000/users
+
+Update Post: 
+curl -X PATCH -H "Content-Type: application/json" -d '{"title":"Updated Title", "content":"Updated content"}' http://localhost:5000/posts/1
+
+Create Post: 
+
+- curl -X POST -H "Content-Type: application/json" -d '{"title":"New Title", "content":"New content", "userId": "1"}' http://localhost:5000/posts/1
